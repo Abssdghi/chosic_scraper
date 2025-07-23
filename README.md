@@ -24,12 +24,13 @@ pip install -r requirements.txt
 
 ## 🔧 Functions
 
-| Function               | Parameters                    | Description                                          |
-|------------------------|------------------------------|------------------------------------------------------|
-| `search(keyword)`      | `keyword: str`                | Search |
+| Function | Parameters | Description |
+|----------|------------|-------------|
+| `search(keyword, type='track')` | `keyword: str`, `type: str = 'track'` | Searches for tracks or artists on a keyword. Returns metadata like name, artist, and image. |
+| `get_similar_songs(id, limit=100, type='track')` | `id: int`, `limit: int = 100`, `type: str = 'track'` | Fetches a list of similar songs based on the given seed ID. Returns details such as name, preview URL, album info, and popularity. |
 
 
-Each function returns structured JSON containing metadata, URLs, images, previews, and related data.
+Each function returns structured JSON.
 
 
 <br>
@@ -41,6 +42,17 @@ Just import the scraper and call your function:
 ```python
 from chosic_scraper import *
 
+song = search(keyword="taste")['data']['tracks']['items'][0]
+name = song['name']
+artist = song['artist']
+id = song['id']
+
+print(f"\nSongs similar to {name} by {artist}:\n")
+
+tracks = get_similar_songs(id=id, limit=10)['data']['tracks']
+    
+for i in tracks:
+    print(i['artists'][0]['name'] + " - " + i['name'])
 
 ```
 

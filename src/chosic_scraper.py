@@ -88,5 +88,3 @@ def get_similar_songs(id: int, limit=100, type: str = 'track'):
     headers = get_chosic_headers()
     
     return get_response(url, params, headers)
-
-
