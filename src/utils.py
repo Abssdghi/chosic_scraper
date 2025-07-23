@@ -2,6 +2,17 @@ import httpx
 
 chostic_url = "https://www.chosic.com/api/tools/"
 
+chostic_params = {
+    'track': {
+        'limit': 10,
+        'seed': 'seed_tracks'
+    },
+    'artist': {
+        'limit': 6,
+        'seed': 'seed_artists'
+    }
+}
+
 def convert_image_to_large(image_url: str):
     """
     Args:

@@ -7,7 +7,7 @@ def search(keyword: str, type: str = 'track') -> dict:
 
     Args:
         keyword (str): The search keyword.
-        type (str, optional): The type of search (default is 'track').
+        type (str, optional): The type of search ['track','artist'] (default is 'track').
 
     Returns:
         dict: Response in format:
@@ -33,7 +33,7 @@ def search(keyword: str, type: str = 'track') -> dict:
     params = {
         "q": keyword,
         "type": type,
-        "limit": 10
+        "limit": chostic_params[type]['limit']
     }
     
     headers = get_chosic_headers()
@@ -41,11 +41,12 @@ def search(keyword: str, type: str = 'track') -> dict:
     return get_response(url, params, headers)
 
 
-def get_recommendations(id: int, limit=100):
+def get_similar_songs(id: int, limit=100, type: str = 'track'):
     """
     Args:
         id (int): track id (get with search func).
         limit (int): limit of tracks count.
+        type (str, optional): The type of search base on ['track','artist'] (default is 'track').
 
     Returns:
         json: result in format:
@@ -80,7 +81,7 @@ def get_recommendations(id: int, limit=100):
     url = chostic_url + "recommendations"
     
     params = {
-        "seed_tracks": id,
+        chostic_params[type]['seed']: id,
         "limit": limit
     }
     
