@@ -53,10 +53,10 @@ def get_response(url, params, headers):
 
 def get_chosic_headers():
     headers = {
-        "user-agent": "Mozilla/5.0",
+        "accept": "application/json",
         "referer": "https://www.chosic.com/playlist-generator/",
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
         "x-requested-with": "XMLHttpRequest",
-        "x-wp-nonce": "",
-        "accept": "application/json"
+        "x-wp-nonce": ""
     }
     return headers
