@@ -53,10 +53,23 @@ def get_response(url, params, headers):
 
 def get_chosic_headers():
     headers = {
-        "accept": "application/json",
-        "referer": "https://www.chosic.com/playlist-generator/",
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36',
-        "x-requested-with": "XMLHttpRequest",
-        "x-wp-nonce": ""
+    "authority": "www.chosic.com",
+    "accept": "application/json",
+    "accept-encoding": "gzip, deflate, br, zstd",
+    "accept-language": "en-US,en;q=0.9,fa;q=0.8",
+    "app": "playlist_generator",
+    "priority": "u=1, i",
+    "referer": "https://www.chosic.com/playlist-generator/",
+    
+    "sec-ch-ua": '"Not)A;Brand";v="8", "Chromium";v="138", "Google Chrome";v="138"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+    "x-requested-with": "XMLHttpRequest",
+    "x-wp-nonce": ""
     }
     return headers
