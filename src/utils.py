@@ -1,4 +1,5 @@
 import httpx
+import config
 
 chostic_url = "https://www.chosic.com/api/tools/"
 
@@ -54,10 +55,11 @@ def get_response(url, params, headers):
 def get_chosic_headers():
     headers = {
     "authority": "www.chosic.com",
-    "accept": "application/json",
+    "accept": "application/json, text/javascript, */*; q=0.01",
     "accept-encoding": "gzip, deflate, br, zstd",
     "accept-language": "en-US,en;q=0.9,fa;q=0.8",
     "app": "playlist_generator",
+    "cookie": config.user_cookie,
     "priority": "u=1, i",
     "referer": "https://www.chosic.com/playlist-generator/",
     
@@ -70,6 +72,6 @@ def get_chosic_headers():
     
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
     "x-requested-with": "XMLHttpRequest",
-    "x-wp-nonce": ""
+    "x-wp-nonce": config.xwp
     }
     return headers
