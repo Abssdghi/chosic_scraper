@@ -63,8 +63,8 @@ def fetch_auth_data():
     except Exception as e:
         print("❌ Error:", str(e))
         return {
-            "x-wp-nonce": nonce if nonce else None,
-            "cookie_header": "; ".join([f"{k}={v}" for k, v in cookies.items()]) if cookies else None,
+            "x-wp-nonce": nonce if nonce else "",
+            "cookie_header": "; ".join([f"{k}={v}" for k, v in cookies.items()]) if cookies else "",
             "timestamp": datetime.now().isoformat(),
             "user_agent": HEADERS["User-Agent"]
         }
